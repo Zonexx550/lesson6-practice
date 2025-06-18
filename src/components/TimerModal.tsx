@@ -53,4 +53,4 @@ export class TimerModal extends React.Component<Props, State> {
       </div>
     );
   }
-}
+} 
