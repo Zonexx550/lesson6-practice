@@ -8,8 +8,15 @@ export const TimerStarter = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSeconds(Number(inputValue));
-    setInputValue("");
+
+    const trimmed = inputValue.trim();
+    if (!trimmed) return;
+
+    const parsed = Number(trimmed);
+    if (parsed > 0) {
+      setSeconds(parsed);
+      setInputValue("");
+    }
   };
 
   const handleClose = () => {
@@ -28,7 +35,7 @@ export const TimerStarter = () => {
           className={styles.input}
         />
         <button type="submit" className={styles.button}>
-          Старт
+          Начать
         </button>
       </form>
 
